@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS retail;
+ DROP DATABASE retail;
+
+USE retail;
+
+/*
+Datatypes:
+==========
+INT (DIGITS 0-9)
+CHAR -> FIXED LENGTH OF CHARACTER
+VARCHAR ->Variable Character
+date
+*/
+CREATE TABLE customer(
+custid INT,
+firstname VARCHAR(20),
+lastname VARCHAR(20),
+gender CHAR(1),
+age INT,
+city VARCHAR(20),
+contact VARCHAR(50)
+);
+
+-- LOAD THE DATA INTO THE TABLE USING INSERT INTO QUERY
+-- SYNTAX : INSERT INTO <TABLE_NAME>(COLUMN_NAME) VALUES(.....);
+
+INSERT INTO CUSTOMER VALUES(1000,'Raghul','Ramesh','M',37,'ÇHENNAI','Raghul.R@gmail.com');
+
+-- VIEW THE RECORDS LOADED IN TO THE TABLE
+-- SELECT QUERY : Sytax=> SELECT * | Columns FROM TABLES
+
+SELECT * FROM CUSTOMER;
+
+INSERT INTO CUSTOMER VALUES(1001,'Satya','Raja','F',20,'Bangalore','+91-9876789899'),(1002,'Prabha','Bala','M',19,'Hyderabad','+91-9876789890'),
+(1003,'Raj','Anand','M',21,'Chennai','+91-9876789892');
