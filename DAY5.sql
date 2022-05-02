@@ -8,6 +8,8 @@ OUTER JOIN
 	- CROSS JOIN
 */
 
+-- ONE LINE COMMENT
+
 CREATE DATABASE batch2;
 use batch2;
 
@@ -48,12 +50,50 @@ SELECT * FROM CUSTOMER c LEFT JOIN ORDER_TBL o ON c.custid=o.custid;
 
 SELECT * FROM CUSTOMER c RIGHT JOIN ORDER_TBL o ON c.custid=o.custid;
 
-SELECT * FROM CUSTOMER c CROSS JOIN ORDER_TBL o;
+-- UNION and UNION ALL
+
+CREATE TABLE cust_table1(
+custid INT PRIMARY KEY,
+name VARCHAR(100),
+city VARCHAR(100));
+
+CREATE TABLE cust_table2(
+custid INT PRIMARY KEY,
+name VARCHAR(100),
+city VARCHAR(100));
+
+INSERT INTO cust_table1 VALUES(100,'Bala','Chennai'),(101,'Vivek','Bangalore'),(102,'Chandra','Hyderabad');
+INSERT INTO cust_table2 VALUES(100,'Bala','Chennai'),(103,'Dhoni','Ranchi'),(104,'Kholi','Delhi');
+
+SELECT * FROM cust_table1
+UNION
+SELECT * FROM cust_table2;
+
+
+SELECT * FROM cust_table1
+UNION ALL
+SELECT * FROM cust_table2;
 
 
 
+INSERT INTO cust_table1 VALUES(200,'priya','mumbai');
+INSERT INTO cust_table2 VALUES(200,'priya','bombay');
+
+SELECT DISTINCT * FROM
+(
+SELECT * FROM cust_table1
+UNION ALL
+SELECT * FROM cust_table2
+) a;
 
 
+-- VIEW Virtual Table
 
+CREATE VIEW cust_data AS
+SELECT custid, custname FROM customer;
 
+select * from cust_data;
+select custname from cust_data;
 
+INSERT INTO CUSTOMER 
+VALUES(2000,'Ankit','Ahmedabad');
