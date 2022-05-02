@@ -89,11 +89,29 @@ SELECT * FROM cust_table2
 
 -- VIEW Virtual Table
 
+DROP VIEW cust_Data;
+
 CREATE VIEW cust_data AS
-SELECT custid, custname FROM customer;
+SELECT custid, custname FROM customer WHERE custid > 1000;
 
 select * from cust_data;
 select custname from cust_data;
 
 INSERT INTO CUSTOMER 
 VALUES(2000,'Ankit','Ahmedabad');
+
+SELECT * FROM CUSTOMER;
+
+-- SEQUENCE
+
+CREATE TABLE employee(
+empid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+empname VARCHAR(100) NOT NULL,
+lacation VARCHAR(30)
+);
+
+SELECT * FROM employee;
+
+INSERT INTO employee VALUES(10000,'Nandan Nilkeni','Bangalore');
+
+INSERT INTO employee(empname,lacation) VALUES('Apurba Majumdar','Pune');
